@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+   <style>
+    p{
+    font-size: medium;
+    padding-top: 5px;
+    color:#222831;
+    padding-top: 10px;
+    font-size:large;
+    font-family: 'Quicksand', sans-serif;
+    }
+   </style>
+</head>
+<body>
+     <div class="login-page">
+        <div class="login-box">
+          <div class="header">
+                <h1 ><i class="bi bi-wrench-adjustable" ></i>Nexora</h1>
+                <p style="font-family: 'Quicksand', sans-serif;">Make the most of your professional life</p>
+          </div>
+         <form action="/register" method="POST">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" id="email" name="username" required placeholder="Enter your email">
+                    <% if (typeof emailError !== "undefined") { %>
+                        <p style="color: red; font-size: 14px; margin-top: 5px; font-family: 'Quicksand', sans-serif;"><%= emailError %></p>
+                    <% } %>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" id="password" name="password" required placeholder="Enter your password">
+                     <% if (typeof passwordError !== "undefined") { %>
+                     <p style="color: red; font-size: 14px; margin-top: 5px; font-family: 'Quicksand', sans-serif;"><%= passwordError %></p>
+                     <% } %>
+                </div>
+
+                  <div class="form-group">
+                    <label for="confirm-password">Confirm Password</label>
+                    <input type="password" class="form-control" id="confirm_password" name="confirm_password" required placeholder="Enter your password">
+                    <% if (typeof confirmError !== "undefined") { %>
+                    <p style="color: red; font-size: 14px; margin-top: 5px;"><%= confirmError %></p>
+                    <% } %>
+                </div>
+
+                  <p class="auth-footer" style="text-align: left; font-size: 12px; color: #666;">
+                    By clicking Join now, you agree to Nexora <a href="#">User Agreement</a>, 
+                    <a href="#">Privacy Policy</a>, and <a href="#">Cookie Policy</a>.
+                </p>
+            
+               <div class="sign-b" style="padding-top:20px;">
+                 <button type="submit" class="sign-btn">Sign in</button>
+               </div>
+            </form>
+            
+
+           
+        </div>
+    </div>
+    
+
+    <script>
+        // document.querySelector("form").addEventListener("submit",function(e){
+        //     const password=document.getElementById("password").value;
+        //     const confirm=document.getElementById("confirm_password").value;
+
+        //     const strongPasswordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?#&])[A-Za-z\d@$!%*?#&]{8,}$/;
+
+        //     if (password !== confirm) {
+        //         e.preventDefault();
+        //         alert("Passwords do not match!");
+        //     } else if (!strongPasswordRegex.test(password)) {
+        //         e.preventDefault();
+        //         alert("Password must be at least 8 characters long and include uppercase, lowercase, number, and special character.");
+        //     }
+
+        // });
+    </script>
+</body>
+</html>

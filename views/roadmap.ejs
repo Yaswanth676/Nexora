@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+     <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/home_page.css">
+    <link rel="stylesheet" href="/css/rdmp.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+   
+</head>
+<body>
+    <div class="roadmap_section">
+         <div class="home_profile">
+            <div class="home_left_section">
+                   <div class="profile_card">
+                         <div class="background_cover"></div>
+
+                       <div class="profile_pic_container">
+                           <img src="https://www.pngmart.com/files/23/Profile-PNG-Photo.png" alt="Profile Picture" class="profile_pic">
+                        </div>
+
+                       <div class="profile_content">
+                            <p style="font-size:larger"><i class="bi bi-incognito"></i><%= user.username %></p>
+                           <p class="bio"><%= user.bio || "No bio added yet." %></p>
+                      <div class="follow-info">
+                            <span><strong><%= followers || 0 %></strong> Followers</span>
+                            <span><strong><%= following || 0 %></strong> Following</span>
+                      </div>
+                      
+                    </div>
+                 </div>
+
+                    
+               </div>
+
+
+
+
+        <div class="roadmap_box">
+            <div class="roadmap_content">
+
+
+                <div class="roadmap_matter">
+                    <div class="roadmap_body_content">
+                        <h4>Company Wise Full-Stack Roadmap</h4>
+                        <p>Here's a company-wise frontend roadmap in paragraph format, tailored for startups, service-based, and product-based companies, covering the essential technologies from basic to advanced levels.</p>
+                        <div class="roadmap_level">
+                            <h5>Complexity:</h5>
+                            <i class="bi bi-battery-charging"></i>
+                            <h5 style="font-weight:600;">Advanced</h5>
+                        </div>
+                        <div class="roadmap_topics">
+                            <button>Javascript</button>
+                            <button>Node JS</button>
+                            <button>CSS</button>
+                        </div>
+                        <div class="roadmap_companies">
+                            <img src="https://miro.medium.com/v2/resize:fit:1200/1*2Yt3-zcGKc6MYuXCxgCL0A.jpeg">
+                            <h4>Companies Interested</h4>
+
+                        </div>
+                    
+                        <div class="roadmap_details">
+                           <button onclick="openModal(this)">View RoadMap</button>
+                        </div>
+
+                        <div id="roadmapModal" class="modal">
+                           <div class="modal-content">
+                               <span class="close-btn" style="color:white" onclick="closeModal(this)">&times;</span>
+                               <img src="/images/Full-Stack.png" alt="Roadmap" />
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+
+
+
+                <div class="roadmap_matter">
+                    <div class="roadmap_body_content">
+                        <h4>Java Developer Roadmap</h4>
+                        <p>A roadmap which covers Java from scratch. It starts from basics of Java and then move to Advanced Java. Every topic including OOPS, DSA, Springboot, Deployment, Microservices etc. are covered in this roadmap.</p>
+                        <div class="roadmap_level">
+                            <h5>Complexity:</h5>
+                            <i  style="color:rgb(224, 157, 22)"class="bi bi-battery-half"></i>
+                            <h5 style="font-weight:600;">Medium</h5>
+                        </div>
+                        <div class="roadmap_topics">
+                            <button>Spring Boot</button>
+                            
+                            <button>Java</button>
+                        </div>
+                        <div class="roadmap_companies">
+                            <img src="https://miro.medium.com/v2/resize:fit:1200/1*2Yt3-zcGKc6MYuXCxgCL0A.jpeg">
+                            <h4>Companies Interested</h4>
+
+                        </div>
+                        <div class="roadmap_details">
+                           <button onclick="openModal(this)">View RoadMap</button>
+                        </div>
+
+                        <div class="modal">
+                           <div class="modal-content">
+                               <span class="close-btn"  style="color:white" onclick="closeModal(this)">&times;</span>
+                               <img src="/images/Java.png" alt="Roadmap" />
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+
+
+
+                <div class="roadmap_matter">
+                    <div class="roadmap_body_content">
+                        <h4>DSA-251 Roadmap</h4>
+                        <p>DSA 251 Roadmap: A complete guide for interview prep, covering basics to advanced levels in Arrays, Strings, Linked Lists, Stacks, Queues, Trees, Binary Search, and Dynamic Programming, designed to elevate DSA skills from beginner through advanced.</p>
+                        <div class="roadmap_level">
+                            <h5>Complexity:</h5>
+                            <i class="bi bi-battery-charging"></i>
+                            <h5 style="font-weight:600;">Advanced</h5>
+                        </div>
+                        <div class="roadmap_topics">
+                            <button>Problem Solving</button>
+                            <button>Algorithms</button> 
+                            
+                        </div>
+                        <div class="roadmap_companies">
+                            <img src="https://miro.medium.com/v2/resize:fit:1200/1*2Yt3-zcGKc6MYuXCxgCL0A.jpeg">
+                            <h4>Companies Interested</h4>
+
+                        </div>
+                        <div class="roadmap_details">
+                           <button onclick="openModal(this)">View RoadMap</button>
+                        </div>
+
+                        <div  class="modal">
+                           <div class="modal-content">
+                               <span class="close-btn" style="color:white" onclick="closeModal(this)">&times;</span>
+                               <img src="/images/python.png" alt="Roadmap" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                 <div class="roadmap_matter">
+                    <div class="roadmap_body_content">
+                        <h4>Python Developer Roadmap</h4>
+                        <p>This Roadmap covers basic to advanced Python concepts, including OOPs and DSA, alongside essential libraries and frameworks, enriched with hands-on projects and interview preparation materials.</p>
+                        <div class="roadmap_level">
+                            <h5>Complexity:</h5>
+                            <i  style="color:green"class="bi bi-battery"></i>
+                            <h5 style="font-weight:600;">Easy</h5>
+                        </div>
+                        <div class="roadmap_topics">
+                            <button>Python</button>
+                            <button>Flask</button>
+                            <button>Django</button>
+                        </div>
+                        <div class="roadmap_companies">
+                            <img src="https://miro.medium.com/v2/resize:fit:1200/1*2Yt3-zcGKc6MYuXCxgCL0A.jpeg">
+                           
+                            <h4>Companies Interested</h4>
+
+                        </div>
+                        <div class="roadmap_details">
+                           <button onclick="openModal(this)">View RoadMap</button>
+                        </div>
+
+                        <div class="modal">
+                           <div class="modal-content">
+                               <span class="close-btn"  style="color:white" onclick="closeModal(this)">&times;</span>
+                               <img src="/images/python.png" alt="Roadmap" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               
+
+
+
+                <div class="roadmap_matter">
+                    <div class="roadmap_body_content">
+                        <h4>Machine Learning Roadmap</h4>
+                        <p>This Machine Learning roadmap covers Mathematics, Python, essential libraries, and a spectrum from basic to advanced topics, including Supervised and Unsupervised Learning, along with practical projects and interview preparation.</p>
+                        <div class="roadmap_level">
+                            <h5>Complexity:</h5>
+                            <i  style="color:rgb(224, 157, 22)"class="bi bi-battery-half"></i>
+                            <h5 style="font-weight:600;">Medium</h5>
+                        </div>
+                        <div class="roadmap_topics">
+                            <button>Deep Learning</button>
+                            
+                        </div>
+                        <div class="roadmap_companies">
+                            <img src="https://miro.medium.com/v2/resize:fit:1200/1*2Yt3-zcGKc6MYuXCxgCL0A.jpeg">
+                           
+                            <h4>Companies Interested</h4>
+
+                        </div>
+                        <div class="roadmap_details">
+                           <button onclick="openModal(this)">View RoadMap</button>
+                        </div>
+
+                        <div class="modal">
+                           <div class="modal-content">
+                               <span class="close-btn"  style="color:white" onclick="closeModal(this)">&times;</span>
+                               <img src="/images/python.png" alt="Roadmap" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="roadmap_matter">
+                    <div class="roadmap_body_content">
+                        <h4>Front End Roadmap</h4>
+                        <p>A company-wise distributed Frontend roadmap, specifically tailored for startups and product-based companies. It guides you in preparing for the unique problems posed by different companies and outlines topics that need be covered for each type.</p>
+                        <div class="roadmap_level">
+                            <h5>Complexity:</h5>
+                            <i  style="color:green"class="bi bi-battery"></i>
+                            <h5 style="font-weight:600;">Easy</h5>
+                        </div>
+                        <div class="roadmap_topics">
+                            <button>Javascript</button>
+                            <button>CSS</button>
+                            <button>HTML</button>
+                        </div>
+                        <div class="roadmap_companies">
+                            <img src="https://miro.medium.com/v2/resize:fit:1200/1*2Yt3-zcGKc6MYuXCxgCL0A.jpeg">
+                           
+                            <h4>Companies Interested</h4>
+
+                        </div>
+                        <div class="roadmap_details">
+                           <button onclick="openModal(this)">View RoadMap</button>
+                        </div>
+
+                        <div class="modal">
+                           <div class="modal-content">
+                               <span class="close-btn"  style="color:white" onclick="closeModal(this)">&times;</span>
+                               <img src="/images/Frontend.png" alt="Roadmap" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+                <div class="roadmap_matter">
+                    <div class="roadmap_body_content">
+                        <h4>Roadmap to Crack SDE Internships</h4>
+                        <p>This roadmap is a comprehensive guide designed to equip you with essential skills across programming languages, data structures and algorithms, frontend and backend,databases, and interview preparation, ensuring you're fully prepared for internship's</p>
+                        <div class="roadmap_level">
+                            <h5>Complexity:</h5>
+                            <i class="bi bi-battery-charging"></i>
+                            <h5 style="font-weight:600;">Advanced</h5>
+                        </div>
+                        <div class="roadmap_topics">
+                            <button>Java</button>
+                            <button>Python</button>
+                            <button>Dsa</button>
+                        </div>
+                        <div class="roadmap_companies">
+                            <img src="https://miro.medium.com/v2/resize:fit:1200/1*2Yt3-zcGKc6MYuXCxgCL0A.jpeg">
+                           
+                            <h4>Companies Interested</h4>
+
+                        </div>
+                        <div class="roadmap_details">
+                           <button onclick="openModal(this)">View RoadMap</button>
+                        </div>
+
+                        <div class="modal">
+                           <div class="modal-content">
+                               <span class="close-btn"  style="color:white" onclick="closeModal(this)">&times;</span>
+                               <img src="/images/Frontend.png" alt="Roadmap" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               
+
+
+
+                <div class="roadmap_matter">
+                    <div class="roadmap_body_content">
+                        <h4>Competitive Programming Roadmap</h4>
+                        <p>This Roadmap encompasses C++, Java, and Python Fundamentals, Algorithmic Essentials, Graphs, Dynamic Programming, Data Structures and competitive programming problems for hands-on learning and skill refinement.</p>
+                        <div class="roadmap_level">
+                            <h5>Complexity:</h5>
+                            <i class="bi bi-battery-charging"></i>
+                            <h5 style="font-weight:600;">Advanced</h5>
+                        </div>
+                        <div class="roadmap_topics">
+                            <button>C++</button>
+                            
+                            <button>Dsa</button>
+                        </div>
+                        <div class="roadmap_companies">
+                            <img src="https://miro.medium.com/v2/resize:fit:1200/1*2Yt3-zcGKc6MYuXCxgCL0A.jpeg">
+                           
+                            <h4>Companies Interested</h4>
+
+                        </div>
+                        <div class="roadmap_details">
+                           <button onclick="openModal(this)">View RoadMap</button>
+                        </div>
+
+                        <div class="modal">
+                           <div class="modal-content">
+                               <span class="close-btn"  style="color:white" onclick="closeModal(this)">&times;</span>
+                               <img src="/images/Frontend.png" alt="Roadmap" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+
+                <div class="roadmap_matter">
+                    <div class="roadmap_body_content">
+                        <h4>Computer Networks Roadmap</h4>
+                        <p>This computer network roadmap provides a comprehensive journey from fundamental to advanced networking concepts, supplemented with tailored interview preparation material for navigating technical interviews in the field.</p>
+                        <div class="roadmap_level">
+                            <h5>Complexity:</h5>
+                            <i  style="color:rgb(224, 157, 22)"class="bi bi-battery-half"></i>
+                            <h5 style="font-weight:600;">Medium</h5>
+                        </div>
+                        <div class="roadmap_topics">
+                            <button>Computer Networks</button>
+                        </div>
+                        <div class="roadmap_companies">
+                            <img src="https://miro.medium.com/v2/resize:fit:1200/1*2Yt3-zcGKc6MYuXCxgCL0A.jpeg">
+                           
+                            <h4>Companies Interested</h4>
+
+                        </div>
+                        <div class="roadmap_details">
+                           <button onclick="openModal(this)">View RoadMap</button>
+                        </div>
+
+                        <div class="modal">
+                           <div class="modal-content">
+                               <span class="close-btn"  style="color:white" onclick="closeModal(this)">&times;</span>
+                               <img src="/images/Frontend.png" alt="Roadmap" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+
+
+                <div class="roadmap_matter">
+                    <div class="roadmap_body_content">
+                        <h4>Non-Tech to Software Developer Roadmap</h4>
+                        <p>The Non-Tech to Software Developer Roadmap guides you through essential skills programming languages, coding problems, core subjects, web development, we providing interview preparation to transition into a software development role.</p>
+                        <div class="roadmap_level">
+                            <h5>Complexity:</h5>
+                            <i  style="color:rgb(224, 157, 22)"class="bi bi-battery-half"></i>
+                            <h5 style="font-weight:600;">Medium</h5>
+                        </div>
+                        <div class="roadmap_topics">
+                            <button>Python</button>
+                            
+                            <button>Java</button>
+                        </div>
+                        <div class="roadmap_companies">
+                            <img src="https://miro.medium.com/v2/resize:fit:1200/1*2Yt3-zcGKc6MYuXCxgCL0A.jpeg">
+                           
+                            <h4>Companies Interested</h4>
+
+                        </div>
+                        <div class="roadmap_details">
+                           <button onclick="openModal(this)">View RoadMap</button>
+                        </div>
+
+                        <div class="modal">
+                           <div class="modal-content">
+                               <span class="close-btn"  style="color:white" onclick="closeModal(this)">&times;</span>
+                               <img src="/images/Frontend.png" alt="Roadmap" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="roadmap_matter">
+                    <div class="roadmap_body_content">
+                        <h4>Data Engineer Roadmap</h4>
+                        <p>This roadmap  Python, SQL, Big Data technologies, Data Warehousing, and Data Mining techniques, augmented with practical projects, interview preparation to equip individuals with the skills necessary for in the field of data engineering.</p>
+                        <div class="roadmap_level">
+                            <h5>Complexity:</h5>
+                            <i class="bi bi-battery-charging"></i>
+                            <h5 style="font-weight:600;">Advanced</h5>
+                        </div>
+                        <div class="roadmap_topics">
+                            <button>Hadoop</button>
+                            <button>Kafka</button>
+                            <button>Hive</button>
+                        </div>
+                        <div class="roadmap_companies">
+                            <img src="https://miro.medium.com/v2/resize:fit:1200/1*2Yt3-zcGKc6MYuXCxgCL0A.jpeg">
+                           
+                            <h4>Companies Interested</h4>
+
+                        </div>
+                        <div class="roadmap_details">
+                           <button onclick="openModal(this)">View RoadMap</button>
+                        </div>
+
+                        <div class="modal">
+                           <div class="modal-content">
+                               <span class="close-btn"  style="color:white" onclick="closeModal(this)">&times;</span>
+                               <img src="/images/Frontend.png" alt="Roadmap" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="roadmap_matter">
+                    <div class="roadmap_body_content">
+                        <h4>Deep Learning Roadmap</h4>
+                        <p>This roadmap provides a comprehensive guide covering prerequisites like Python and mathematical foundations, followed by in-depth exploration of neural networks, deep learning architectures, advanced techniques,frameworks.</p>
+                        <div class="roadmap_level">
+                            <h5>Complexity:</h5>
+                            <i class="bi bi-battery-charging"></i>
+                            <h5 style="font-weight:600;">Advanced</h5>
+                        </div>
+                        <div class="roadmap_topics">
+                            <button>Machine Learning</button>
+                            <button>Python</button>
+                        </div>
+                        <div class="roadmap_companies">
+                            <img src="https://miro.medium.com/v2/resize:fit:1200/1*2Yt3-zcGKc6MYuXCxgCL0A.jpeg">
+                           
+                            <h4>Companies Interested</h4>
+
+                        </div>
+                        <div class="roadmap_details">
+                           <button onclick="openModal(this)">View RoadMap</button>
+                        </div>
+
+                        <div class="modal">
+                           <div class="modal-content">
+                               <span class="close-btn"  style="color:white" onclick="closeModal(this)">&times;</span>
+                               <img src="/images/Frontend.png" alt="Roadmap" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+        
+
+                    
+                
+            </div>
+
+        </div>
+
+    </div>
+    
+    <script>
+        function openModal(button) {
+           const modal=button.closest('.roadmap_body_content').querySelector('.modal');
+           modal.style.display='flex';
+        }
+
+        function closeModal(span) {
+           const modal=span.closest('.modal');
+           modal.style.display='none';
+        }
+    </script>
+     <%- include('partials/footer') %>
+</body>
+</html>

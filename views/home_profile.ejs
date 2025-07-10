@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="/css/home_page.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+    <style>
+        body{
+         background-color: #222831; 
+        }
+        
+        
+    </style>
+
+</head>
+<body>
+    <div class="home_profile">
+        <div class="home_left_section">
+                   <div class="profile_card">
+                         <div class="background_cover"></div>
+
+                       <div class="profile_pic_container" >
+                           <img src="https://www.pngmart.com/files/23/Profile-PNG-Photo.png" alt="Profile Picture" class="profile_pic">
+                        </div>
+
+                       <div class="profile_content">
+                            <p style="font-size:larger"><i class="bi bi-incognito"></i><%= user.username %></p>
+                           <p class="bio"><%= user.bio || "No bio added yet." %></p>
+                      <div class="follow-info">
+                            <span><strong><%= user.followers || 0 %></strong> Followers</span>
+                            <span><strong><%= user.following || 0 %></strong> Following</span>
+                      </div>
+                       <button id="showSavedPostsBtn" style="margin-top:20px;margin-left:0; display: block; background:white; color: rgb(4, 4, 4); border: none; border-radius: 8px; padding: 10px 10px; font-size: 16px; cursor: pointer;"><i class="bi bi-bookmarks"></i>Show Saved Posts</button>
+                    </div>
+                 </div>
+
+                    
+               </div>
+
+        <div class="home_middle_section">
+            <div class="main_content">
+                
+               <!-- Post Trigger Bar -->
+                <div class="create-post-bar" onclick="openModal()">
+                  
+                   <img src="https://www.pngmart.com/files/23/Profile-PNG-Photo.png" alt="Profile Picture" class="profile_pic" style="height:35px; width:35px;">
+                   <input type="text" placeholder="Start a post..." readonly />
+                </div>
+<!-- Post Modal -->
+               <div id="postModal" class="modal-overlay">
+                  <div class="modal-content">
+                     <div class="modal-header">
+                         <img src="https://www.pngmart.com/files/23/Profile-PNG-Photo.png" alt="Profile Picture" class="profile_pic" style="height:35px; width:35px;">
+                         <span class="username"><%=user.username%></span>
+                         <span class="close-btn" onclick="closeModal()">×</span>
+                     </div>
+
+                    <form action="/upload_post" method="POST" enctype="multipart/form-data">
+                          <textarea name="caption" placeholder="What do you want to talk about?" required></textarea>
+
+                          <label class="upload-btn">
+                           Add Photo
+                          <input type="file" name="post_image" accept="image/*" hidden />
+                          </label>
+
+                          <button type="submit">Post</button>
+                    </form>
+                 </div>
+              </div>
+
+
+                 
+                <div class="post_feed">
+                      <% posts.forEach(post => { %>
+                      <div class="post_card" id="post-<%= post.id %>">
+      
+                       <!-- Top: User Info -->
+                          <div class="post_header">
+                             <div class="user_info">
+                                <div class="avatar_placeholder"><img src="https://www.pngmart.com/files/23/Profile-PNG-Photo.png" alt="Profile Picture" class="profile_pic" style="height:35px; width:35px;"></div>
+                                     <div>
+                                         <p class="username"><%= post.name %></p>
+                                         <p class="bio"><%= post.bio %></p> <!-- Replace later with post.bio -->
+                                      </div>
+                                </div>
+                               <% if (post.user_id !== user.id) { %>
+                                 <button class="follow_btn" data-user-id="<%= post.user_id %>"><%= post.is_following ? 'Following' : 'Follow' %></button>
+                               <% } %>
+                          </div>
+                          <hr>
+
+                      <!-- Caption -->
+                     <div class="caption-wrapper">
+                          <div class="caption" id="caption-<%= post.id %>">
+                                <span class="caption-text"><%= post.caption %></span>
+                          </div>
+                         <% if (post.caption.length > 100) { %>
+                             <span class="read-more" data-post-id="<%= post.id %>">Read more</span>
+                         <% } %>
+                     </div>
+
+                     <!-- Post Image -->
+                     <img src="<%= post.image_url %>" alt="Post Image" class="post_img">
+                     <hr>
+                     <!-- Bottom: Interactions -->
+                      <div class="post_actions">
+                         <button class="action_btn like-btn <%= post.user_liked ? 'liked' : '' %>" data-post-id="<%= post.id %>" data-liked="<%= post.user_liked %>">
+                         <i class="bi bi-hand-thumbs-up<%= post.user_liked ? '-fill' : '' %>"></i> 
+                         <span id="like-count-<%= post.id %>"><%= post.like_count || 0 %></span> Like's
+                        </button>
+                        <button class="action_btn comment-toggle" data-post-id="<%= post.id %>">
+                            <i class="bi bi-chat-right-text"></i> 
+                           <span id="comment-count-<%= post.id %>"></span> Comments 
+                        </button>
+                        <button class="action_btn book save-post-btn" data-post-id="<%= post.id %>">
+                            <i class="bi bi-bookmark<%= post.is_saved ? '-fill' : '' %>"></i>
+                            <%= post.is_saved ? 'Saved' : 'Save' %>
+                        </button>
+                      </div>
+
+                      <!-- Comment Section -->
+                      <div class="comment-section" id="comment-section-<%= post.id %>" style="display:none;">
+                           
+                          <div class="comments-list" id="comments-list-<%= post.id %>"></div>
+
+                          <!-- Comment Form -->
+                          <form class="comment-form" data-post-id="<%= post.id %>">
+                            
+                              <input type="text" id="comment-input-<%= post.id %>" placeholder="Write a comment..." required>
+                              <button type="submit">Post</button>
+                          </form>
+                      </div>
+
+               </div>
+           <% }) %>
+         </div>
+
+
+          
+            </div>
+
+       </div>
+
+
+
+
+
+        <div class="home_right_section">
+            <div class="footer_links">
+                <div class="footer_column">
+                      <a href="#">About</a>
+                      <a href="#">Accessibility</a>
+                      <a href="#">Help Center</a>
+                </div>
+               <div class="footer_column">
+                     <a href="#">Privacy & Terms</a>
+                     <a href="#">Ad Choices</a>
+                     <a href="#">Advertising</a>
+               </div>
+               <div class="footer_column">
+                     <a href="#">Business Services</a>
+                     <a href="#">Get the Nexora app</a>
+                     <a href="#">More</a>
+               </div>
+            </div>
+            
+           <div class="footer_bottom">
+             <p>
+                <strong style="color:white;">Linked</strong><strong style="background-color:white;color:black;padding:1px 4px;border-radius:2px;"></strong>
+                 Nexora Corporation © 2025
+             </p>
+           </div>
+        </div>
+
+        <!-- Saved Posts Modal -->
+        <div id="savedPostsModal" class="modal-overlay" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.6); justify-content:center; align-items:center; z-index:9999;">
+          <div class="modal-content" style="background:white; border-radius:12px; max-width:600px; width:90vw; max-height:80vh; overflow-y:auto; position:relative; padding:32px 24px 24px 24px;">
+            <span class="close-btn" id="closeSavedPostsModal" style="position:absolute; top:10px; right:18px; font-size:2rem; cursor:pointer;">&times;</span>
+            <div id="savedPostsContent">
+              <div style="text-align:center; padding:40px 0; color:#888;">Loading...</div>
+            </div>
+          </div>
+        </div>
+
+
+
+
+
+    </div>
+    <%- include('partials/footer') %>
+    <script >
+      
+function openModal() {
+  document.getElementById("postModal").style.display = "flex";
+}
+function closeModal() {
+  document.getElementById("postModal").style.display = "none";
+}
+
+// Event delegation for read more buttons
+document.addEventListener('DOMContentLoaded', function() {
+  document.addEventListener('click', function(e) {
+    if (e.target.classList.contains('read-more')) {
+      const postId = e.target.getAttribute('data-post-id');
+      toggleCaption(postId);
+    }
+  });
+
+  // Comment toggle functionality
+  document.querySelectorAll('.comment-toggle').forEach(btn => {
+    btn.addEventListener('click', async () => {
+      const postId = btn.getAttribute('data-post-id');
+      const section = document.getElementById('comment-section-' + postId);
+
+      if (section.style.display === 'none') {
+        section.style.display = 'block';
+        loadComments(postId);
+      } else {
+        section.style.display = 'none';
+      }
+    });
+  });
+
+  // Comment form submission
+  document.addEventListener('submit', async (e) => {
+    if (e.target.classList.contains('comment-form')) {
+      e.preventDefault();
+      const postId = e.target.getAttribute('data-post-id');
+      const input = document.getElementById(`comment-input-${postId}`);
+      const commentText = input.value.trim();
+      
+      if (!commentText) return;
+
+      try {
+        const response = await fetch('/comments', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ postId, commentText })
+        });
+
+        const data = await response.json();
+        if (data.success) {
+          input.value = '';
+          loadComments(postId);
+        } else {
+          console.error('Comment failed:', data.message);
+        }
+      } catch (err) {
+        console.error('Error posting comment:', err);
+      }
+    }
+  });
+
+  // Like button functionality
+  document.querySelectorAll('.like-btn').forEach(button => {
+    button.addEventListener('click', async () => {
+      const postId = button.getAttribute('data-post-id');
+      const isCurrentlyLiked = button.getAttribute('data-liked') === 'true';
+      const icon = button.querySelector('i');
+      const countSpan = document.getElementById(`like-count-${postId}`);
+      
+      // Optimistic UI update
+      let currentCount = parseInt(countSpan.textContent);
+      if (isCurrentlyLiked) {
+        countSpan.textContent = currentCount - 1;
+        button.classList.remove('liked');
+        button.setAttribute('data-liked', 'false');
+        icon.className = 'bi bi-hand-thumbs-up';
+      } else {
+        countSpan.textContent = currentCount + 1;
+        button.classList.add('liked');
+        button.setAttribute('data-liked', 'true');
+        icon.className = 'bi bi-hand-thumbs-up-fill';
+      }
+
+      try {
+        const response = await fetch(`/like/${postId}`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        });
+
+        const data = await response.json();
+
+        if (!data.success) {
+          // Revert optimistic update on failure
+          if (isCurrentlyLiked) {
+            countSpan.textContent = currentCount;
+            button.classList.add('liked');
+            button.setAttribute('data-liked', 'true');
+            icon.className = 'bi bi-hand-thumbs-up-fill';
+          } else {
+            countSpan.textContent = currentCount;
+            button.classList.remove('liked');
+            button.setAttribute('data-liked', 'false');
+            icon.className = 'bi bi-hand-thumbs-up';
+          }
+          console.error('Like failed:', data.message);
+        }
+      } catch (err) {
+        // Revert optimistic update on error
+        if (isCurrentlyLiked) {
+          countSpan.textContent = currentCount;
+          button.classList.add('liked');
+          button.setAttribute('data-liked', 'true');
+          icon.className = 'bi bi-hand-thumbs-up-fill';
+        } else {
+          countSpan.textContent = currentCount;
+          button.classList.remove('liked');
+          button.setAttribute('data-liked', 'false');
+          icon.className = 'bi bi-hand-thumbs-up';
+        }
+        console.error('Like failed:', err);
+      }
+    });
+  });
+
+  // Follow button functionality
+  document.querySelectorAll('.follow_btn').forEach(button => {
+    button.addEventListener('click', async () => {
+      const followingId = button.getAttribute('data-user-id');
+      const prevText = button.textContent;
+      button.disabled = true;
+      try {
+        const response = await fetch('/toggle-follow', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ followingId })
+        });
+        const data = await response.json();
+        if (data.status === 'followed') {
+          button.textContent = 'Following';
+        } else if (data.status === 'unfollowed') {
+          button.textContent = 'Follow';
+        } else {
+          button.textContent = prevText;
+        }
+      } catch (err) {
+        button.textContent = prevText;
+        console.error('Follow/unfollow failed:', err);
+      } finally {
+        button.disabled = false;
+      }
+    });
+  });
+
+  // Save button functionality
+  document.querySelectorAll('.save-post-btn').forEach(button => {
+    button.addEventListener('click', async () => {
+      const postId = button.getAttribute('data-post-id');
+      const prevHTML = button.innerHTML;
+      button.disabled = true;
+      try {
+        const response = await fetch('/toggle-save', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ postId })
+        });
+        const data = await response.json();
+        if (data.status === 'saved') {
+          button.innerHTML = '<i class="bi bi-bookmark-fill"></i> Saved';
+        } else if (data.status === 'unsaved') {
+          button.innerHTML = '<i class="bi bi-bookmark"></i> Save';
+        } else {
+          button.innerHTML = prevHTML;
+        }
+      } catch (err) {
+        button.innerHTML = prevHTML;
+        console.error('Save/unsave failed:', err);
+      } finally {
+        button.disabled = false;
+      }
+    });
+  });
+
+  // Saved Posts Modal logic
+  const showSavedBtn = document.getElementById('showSavedPostsBtn');
+  const savedModal = document.getElementById('savedPostsModal');
+  const closeSavedBtn = document.getElementById('closeSavedPostsModal');
+  const savedContent = document.getElementById('savedPostsContent');
+
+  if (showSavedBtn && savedModal && closeSavedBtn && savedContent) {
+    showSavedBtn.addEventListener('click', async () => {
+      savedModal.style.display = 'flex';
+      savedContent.innerHTML = '<div style="text-align:center; padding:40px 0; color:#888;">Loading...</div>';
+      try {
+        const res = await fetch('/saved-posts', { headers: { 'X-Requested-With': 'XMLHttpRequest' } });
+        const html = await res.text();
+        // Try to extract only the posts list if full HTML is returned
+        const match = html.match(/<div class=\"post_feed\">([\s\S]*?)<\/div>/);
+        if (match) {
+          savedContent.innerHTML = '<div class="post_feed">' + match[1] + '</div>';
+        } else {
+          savedContent.innerHTML = html;
+        }
+      } catch (err) {
+        savedContent.innerHTML = '<div style="color:red; text-align:center;">Failed to load saved posts.</div>';
+      }
+    });
+    closeSavedBtn.addEventListener('click', () => {
+      savedModal.style.display = 'none';
+    });
+    savedModal.addEventListener('click', (e) => {
+      if (e.target === savedModal) savedModal.style.display = 'none';
+    });
+  }
+});
+
+
+async function loadComments(postId) {
+  try {
+    const res = await fetch(`/comments/${postId}`);
+    const comments = await res.json();
+
+    const list = document.getElementById(`comments-list-${postId}`);
+    const count = document.getElementById(`comment-count-${postId}`);
+    count.innerText = comments.length;
+
+    list.innerHTML = '';
+    comments.forEach(c => {
+      const div = document.createElement('div');
+      div.className = 'comment-item';
+      div.innerHTML = `<span class="comment-author id">
+  <img src="https://www.pngmart.com/files/23/Profile-PNG-Photo.png" alt="Profile Picture" class="profile_pic" style="height:20px; width:20px; ">
+  ${c.name}
+</span>
+<span class="comment-text">${c.comment_text}</span>`;
+      list.appendChild(div);
+    });
+  } catch (err) {
+    console.error('Error loading comments:', err);
+  }
+}
+
+function toggleCaption(id) {
+  const caption = document.getElementById(`caption-${id}`);
+  const button = caption.nextElementSibling;
+
+  if (caption.classList.contains("expanded")) {
+    caption.classList.remove("expanded");
+    button.textContent = "Read more";
+  } else {
+    caption.classList.add("expanded");
+    button.textContent = "Show less";
+  }
+}
+    </script>
+</body>
+</html>

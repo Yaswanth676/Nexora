@@ -1,0 +1,146 @@
+body{
+    margin:0;
+    padding:0;
+    background-color:#222831;
+   
+}
+
+
+.job_section{
+    display:flex;
+    justify-content: center;
+    font-family:  'Quicksand', sans-serif;
+    
+}
+.user_jobs{
+    flex:3;
+    background-color:#222831;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    height:320vh;
+    border-radius: 10px;
+   
+}
+
+.user_jobs_containers{
+    border-radius: 10px;
+    height:330px;
+    background-color: white;
+    margin:35px;
+}
+
+.user_jobs_containers a{
+    display: inline-block;
+    text-decoration: none;
+    background-color:#113d80;
+    color:white;
+    margin-left:270px;
+    font-size: 16px;
+    border-radius: 20px;
+    text-align: center;
+    font-weight: 600;
+    width: 250px;         
+    transition: transform 0.3s ease;
+    
+}
+
+.user_jobs_containers a:hover {
+    background-color: #446a9e;
+    transform: scale(1.1);
+    
+}
+
+.user_jobs_containers_top,.right_side{
+
+    display: flex;
+    justify-content: space-between;
+    padding-left: 20px;
+    font-size: large;
+}
+.user_jobs_containers_top i{
+    font-size:larger;
+    padding-top: 15px;
+    padding-left: 15px;
+    padding-right: 5px;
+    display: flex;
+   
+   
+}
+.right_side{
+    padding-right: 20px;
+}
+.jobs_middle_contaniers{
+    display:flex;
+    gap:20px;
+    padding-left: 20px;
+}
+
+
+.jobs_middle_contaniers button{
+    border:none;
+    padding: 5px;
+    border-radius: 10px;
+    background-color:#113d80;
+    color:white;
+}
+
+.jobs_bottom_containers {
+  display: flex;
+  gap: 10px;
+  padding: 15px 0;
+  flex-wrap: wrap;
+}
+
+.jobs_description {
+  display: flex;
+  align-items: center;
+  font-size:x-large;
+  gap: 8px;
+  padding: 0 10px;
+  min-width: 150px;
+}
+
+.jobs_description:last-child {
+  border-right: none; /* remove border from last item */
+}
+
+.label {
+  margin: 0;
+  font-size: 13px;
+  color: #98a6ad;
+}
+
+.value {
+  margin: 0;
+  font-weight: 600;
+  font-size: 14px;
+  color: #2c3e50;
+}
+
+.jobs_down_containers{
+    padding:10px;
+    font-size:13px;
+
+}
+
+.my-button{
+    width: 60%;
+    background-color: #113d80;
+    color:white;
+    font-size: medium;
+    margin-left: 210px;
+    padding:10px;
+    border-radius: 20px;
+    border:none;
+    transition: transform 0.3s ease;  
+}
+.my-button:hover{
+    background-color: #446a9e;
+    transform: scale(1.1);
+    
+
+}
+
+
+

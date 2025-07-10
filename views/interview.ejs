@@ -1,0 +1,247 @@
+<%- include('partials/header') %>
+
+
+   <div class="interview_section">
+          
+         <div class="home_left_section">
+                   <div class="profile_card">
+                         <div class="background_cover"></div>
+
+                       <div class="profile_pic_containers">
+                           <img src="https://www.pngmart.com/files/23/Profile-PNG-Photo.png" alt="Profile Picture" class="profile_pic">
+                        </div>
+
+                       <div class="profile_content">
+                            <p style="font-size:larger"><i class="bi bi-incognito"></i><%= user.username %></p>
+                           <p class="bio"><%= user.bio || "No bio added yet." %></p>
+                      <div class="follow-info">
+                            <span><strong><%= followers || 0 %></strong> Followers</span>
+                            <span><strong><%= following || 0 %></strong> Following</span>
+                      </div>
+                       
+                    </div>
+                 </div>
+
+                    
+               </div>
+        
+       
+
+
+
+  
+ <div class="interview_cards_container" style="display: flex; flex-wrap: wrap; gap: 20px;">
+  
+  <!-- Amazon -->
+  <div class="interview_card">
+    <div class="interview_card_top">
+      <div class="interview_card_header">
+         <img src="https://i.pinimg.com/originals/01/ca/da/01cada77a0a7d326d85b7969fe26a728.jpg" style="width: 40px; height:40px;">
+         <p>Amazon | Software Development Engineer I</p>
+         <div class="interview_card_meta">
+        <i class="bi bi-cursor"></i>
+        <p style="font-size: medium">Remote</p>
+      </div>
+      </div>
+      
+      
+    </div>
+
+    <div class="interview_tags">
+      <button>Medium</button>
+      <button>Remote</button>
+      <button>0–1 years</button>
+      <button>5 Rounds</button>
+      <button>5 Problems</button>
+    </div>
+
+    <div class="interview_details">
+      <div class="interview_item">
+        <i class="bi bi-lightbulb"></i>
+        <div>
+          <p class="label">Key Focus</p>
+          <p class="value">DSA, Leadership Principles, System Design</p>
+        </div>
+      </div>
+      <div class="interview_item">
+        <i class="bi bi-gear"></i>
+        <div>
+          <p class="label">Strategy</p>
+          <p class="value">Solve in patterns & think of edge cases</p>
+        </div>
+      </div>
+      
+      <div class="interview_item">
+        <i class="bi bi-person-circle"></i>
+        <div>
+          <p class="label">Shared By</p>
+          <p class="value">Anonymous, Software Engineer at Startup</p>
+        </div>
+      </div>
+      
+      <div class="interview_item">
+        <i class="bi bi-x-circle"></i>
+        <div>
+          <p class="label">Status</p>
+          <p class="value" style="color: rgb(219, 71, 71);">Ghosted</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="interview_footer">
+      <h3>Preparation Tips</h3>
+      <p><i class="bi bi-dot"></i>Stick to patterns like Stack and Sliding Window.Don't just memorize solutions, practice explaining your logic.</p>
+      <p><i class="bi bi-dot"></i>Focus on using HashMaps, Two Pointers, and understanding when to optimize space/time.</p>
+      
+    </div>
+
+    <a href="/interview/1" class="my-button">View Full Interview</a>
+  </div>
+
+  <!-- Google -->
+  <div class="interview_card">
+    <div class="interview_card_top">
+      <div class="interview_card_header">
+         <img src="https://www.freepnglogos.com/uploads/google-logo-png/google-logo-png-google-icon-logo-png-transparent-svg-vector-bie-supply-14.png" style="width: 40px; height:40px;">
+         <p>Google Software Engineering Intern</p>
+      <div class="interview_card_meta">
+        <i class="bi bi-cursor"></i>
+        <p style="font-size: medium">Bangalore</p>
+      </div>
+      </div>
+     
+    </div>
+
+    <div class="interview_tags">
+      <button>Hard</button>
+      <button>Onsite</button>
+      <button>0–1 years</button>
+      <button>4 Rounds</button>
+      <button>4 Problems</button>
+    </div>
+
+    <div class="interview_details">
+      <div class="interview_item">
+        <i class="bi bi-lightbulb"></i>
+        <div>
+          <p class="label">Key Focus</p>
+          <p class="value">Algorithms, Coding, Communication</p>
+        </div>
+      </div>
+      <div class="interview_item">
+        <i class="bi bi-gear"></i>
+        <div>
+          <p class="label">Strategy</p>
+          <p class="value">Practice on LeetCode, review projects</p>
+        </div>
+      </div>
+      <div class="interview_item">
+        <i class="bi bi-person-circle"></i>
+        <div>
+          <p class="label">Shared By</p>
+          <p class="value">Yash, Final Year CSE Student</p>
+        </div>
+      </div>
+      <div class="interview_item">
+        <i class="bi bi-calendar-event"></i>
+        <div>
+          <p class="label">Posted</p>
+          <p class="value">12 days ago</p>
+        </div>
+      </div>
+      <div class="interview_item">
+        <i class="bi bi-x-circle"></i>
+        <div>
+          <p class="label">Status</p>
+          <p class="value" style="color: rgb(33, 180, 80);">Selected</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="interview_footer">
+      <h3>Preparation Tips</h3>
+      <p><i class="bi bi-dot"></i>Focused deeply on Google-tagged problems, especially on Strings, Graphs, and Heap</p>
+      <p><i class="bi bi-dot"></i>Practiced mock interviews to get better at thinking + coding under 60-minute constraints</p>
+      
+    </div>
+
+    <a href="/interview/2" class="my-button">View Full Interview</a>
+  </div>
+
+  <!-- Meesho -->
+  <div class="interview_card">
+    <div class="interview_card_top">
+      <div class="interview_card_header">
+        <img src="https://companieslogo.com/img/orig/meesho-47219424.png?t=1720244494" style="width: 40px; height:40px; margin-right:10px">
+      <p>Meesho Software Development Engineer (SDE)</p>
+      <div class="interview_card_meta">
+        <i class="bi bi-cursor"></i>
+        <p style="font-size: medium">Remote</p>
+      </div>
+      </div>
+      
+    </div>
+
+    <div class="interview_tags">
+      <button>Medium</button>
+      <button>Remote</button>
+      <button>2–3 Weeks</button>
+      <button>5 Rounds</button>
+      <button>3 Coding Problems</button>
+    </div>
+
+    <div class="interview_details">
+      <div class="interview_item">
+        <i class="bi bi-lightbulb"></i>
+        <div>
+          <p class="label">Key Focus</p>
+          <p class="value">DSA, System Design, Frontend, Behavioral</p>
+        </div>
+      </div>
+      <div class="interview_item">
+        <i class="bi bi-gear"></i>
+        <div>
+          <p class="label">Strategy</p>
+          <p class="value">Think of interviews as conversations to learn and showcase your mindset.</p>
+        </div>
+      </div>
+      <div class="interview_item">
+        <i class="bi bi-person-circle"></i>
+        <div>
+          <p class="label">Shared By</p>
+          <p class="value">Anonymous, Software Engineer</p>
+        </div>
+      </div>
+      <div class="interview_item">
+        <i class="bi bi-calendar-event"></i>
+        <div>
+          <p class="label">Posted</p>
+          <p class="value">10 days ago</p>
+        </div>
+      </div>
+      <div class="interview_item">
+        <i class="bi bi-x-circle"></i>
+        <div>
+          <p class="label">Status</p>
+          <p class="value" style="color: rgb(33, 180, 80);">Selected</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="interview_footer">
+      <h3>Preparation Tips</h3>
+      <p><i class="bi bi-dot"></i>Focus on strengthening your data structures and algorithms skills through consistent practice. Don't skip basics of system design.     </p>
+      <p><i class="bi bi-dot"></i>Understanding the company's business and tech stack helped me speak confidently.</p>
+      
+    </div>
+
+    <a href="/interview/3" class="my-button">View Full Interview</a>
+  </div>
+
+</div>
+
+   </div>
+
+<%- include('partials/footer') %>
+
+

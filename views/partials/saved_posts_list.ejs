@@ -1,0 +1,16 @@
+<div class="post_feed">
+  <% savedPosts.forEach(post => { %>
+    <div class="post_card">
+      <strong>@<%= post.name %></strong>
+      <p><%= post.caption %></p>
+      <img src="<%= post.image_url %>" alt="Post Image" style="max-width:100%; border-radius:10px;">
+      <button class="action_btn book save-post-btn" data-post-id="<%= post.id %>">
+       
+      </button>
+    </div>
+  <% }) %>
+</div> 
+
+<style>
+  
+</style>

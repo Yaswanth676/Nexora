@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexora</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+    <style>
+        body{
+            margin:0;
+        }
+        a{
+            text-decoration: none;
+        }
+        .my-button{
+            padding: 15px;
+            width:100px;
+            font-size:medium;
+            font-weight: bold;
+            border-radius: 20px;
+            background-color:  #0a66c2;
+            color:white;
+            border:none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .my-button:hover{
+            background-color: #0b3b6b;
+            color: white;
+
+        }
+        .top{
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1;
+           
+            
+        }
+        
+        
+        .top-section{
+            display: flex;
+            justify-content:space-between;
+            align-items: center;    
+            height:70px;  
+            background-color: #091057;
+            
+            
+        }
+        
+        .top-left{
+            padding-left: 50px;
+            color: white;
+            font-size: 40px;
+            font-weight: bolder;
+        }
+
+        .top-right{
+           display: flex;
+           gap:20px;
+           padding-right: 50px;
+           
+        }
+
+        .middle-section {
+          height: 83vh;              
+          display: flex;              
+          justify-content: center;    
+          align-items: center;        
+        background-color: #222831;  
+      
+        }
+       
+        .middle-content {
+          width: 700px;                
+          height: 400px;               
+          background-color: white;
+          box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+          border-radius: 8px;
+          margin-top: 50px;
+          text-align: center;
+          color:#666;
+          font-size:large;
+          transition: transform 0.4s ease;
+         
+        }
+        .middle-content:hover{
+            transform: scale(1.1);
+        }
+        .heading{
+            color:#0a66c2;
+            font-size:50px;
+        }
+        .matter{
+            font-size:large;
+            padding-bottom: 80px;
+            font-family: 'Quicksand', sans-serif;
+        }
+
+
+        .bottom-section{
+            height:900px;
+           
+            display:flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap:20px;
+            background-color: #222831; 
+            padding-top:80px;
+          
+           
+        }
+        .boxes{
+            
+            height: 300px;
+            width: 400px;
+            padding:5px;
+            border-radius: 16px;
+            border: 2px solid;
+            margin-top:20px;
+            background-color: white;
+            display: flex;
+            flex-direction:column;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.4s ease;
+            
+        }
+          .boxes:hover{
+             transform: scale(1.1);
+
+          }
+        .feature-icon{
+            font-size:50px;
+            color:#0a66c2;
+            
+        }
+        h3{
+            font-size: xx-large;
+            color:#222831;
+             margin: 0; /* remove default spacing */
+             padding-top: 20px;
+             padding:10px;
+        }
+        p{
+            text-align: center;
+            font-size:medium;
+            color:#222831;
+             margin: 0; /* remove default spacing */
+             padding-top: 10px;
+            font-family: 'Quicksand', sans-serif;
+            
+
+            
+
+        }
+    </style>
+</head>
+<body>
+    <div class="top">
+    <div class="top-section">
+       <div class="top-left"><i class="bi bi-wrench-adjustable"></i>Nexora</div>
+       <div class="top-right">
+        <a href="/login"><button class="my-button">Login</button></a>
+        <a href="register"><button class="my-button">Register</button></a>
+       </div>
+    </div>
+    </div>
+    
+    <div class="middle-section">
+        <div class="middle-content">
+            <h1 class="heading">Welcome to <i class="bi bi-wrench-adjustable"></i>Nexora</h1>
+             <p class="matter">Connect with professionals and expand your network in the digital world. Join our community of industry leaders and discover endless opportunities for career growth and professional development. Unlock new connections, insights, and possibilities that can shape your future.
+</p>
+             <a href="/register" class="my-button" style="font-size:medium;font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">Get Started</a>
+        </div>
+
+
+    </div>
+
+
+    <div class="bottom-section">
+      
+         <div  class="boxes">
+            <div class="feature-icon"><i class="bi bi-bar-chart-line"></i></div>
+            <h3>Build Your Network</h3>
+            <p>Connect with industry experts and expand your professional circle. Build meaningful relationships that can open doors to new opportunities.</p>
+
+         </div>
+         <div  class="boxes">
+             <div class="feature-icon"><i class="bi bi-search"></i></div>
+             <h3>Find Opportunities</h3>
+             <p>Discover exclusive job openings and connect with top employers. Get noticed by companies looking for talent like you.</p>
+         </div>
+         <div  class="boxes">
+             <div class="feature-icon"><i class="bi bi-graph-up-arrow"></i></div>
+             <h3>Grow Your Career</h3>
+             <p>Share your expertise and learn from others. Get insights and advice to accelerate your professional growth.</p>
+         </div>
+       
+         <div  class="boxes">
+            <div class="feature-icon"><i class="bi bi-bullseye"></i></div>
+            <h3>Professional Branding</h3>
+            <p>Create a compelling professional profile that showcases your skills, achievements, and career aspirations. Stand out to recruiters and industry leaders.</p>
+         </div>
+         <div  class="boxes">
+             <div class="feature-icon"><i class="bi bi-people"></i></div>
+             <h3>Industry Groups</h3>
+             <p>Join specialized industry groups to engage in meaningful discussions, share insights, and stay updated with the latest trends in your field.</p>
+         </div>
+         <div  class="boxes">
+            <div class="feature-icon"><i class="bi bi-pie-chart"></i></div>
+            <h3>Career Analytics</h3>
+            <p>Track your profile performance, understand your network growth, and get insights into industry trends to make informed career decisions.</p>
+         </div>
+       
+       
+
+    </div>
+</body>
+</html>

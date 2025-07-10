@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile - Nexora</title>  
+    <link rel="stylesheet" href="/css/user_profile.css">
+    <link rel="stylesheet" href="/css/home_page.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="user_profile_container">
+        <div class="home_left_section">
+                   <div class="profile_card">
+                         <div class="background_cover"></div>
+
+                       <div class="profile_pic_container" style="margin-left:34px;margin-bottom:50px; height:85px;width:85px;">
+                           <img src="https://www.pngmart.com/files/23/Profile-PNG-Photo.png" alt="Profile Picture" class="profile_pic">
+                           <a href="/user_profile/edit" class="edit_option" title="Edit Profile" style="margin-left:160px"><i class="bi bi-pencil-square"></i></a>
+                        </div>
+
+                       <div class="profile_content">
+                            <p style="font-size:larger"><i class="bi bi-incognito"></i><%= user.username %></p>
+                           <p class="bio"><%= user.bio || "No bio added yet." %></p>
+                      <div class="follow-info">
+                            <span><strong><%= followers || 0 %></strong> Followers</span>
+                            <span><strong><%= following || 0 %></strong> Following</span>
+                      </div>
+                       
+                    </div>
+                 </div>
+
+                    
+               </div>
+
+         <div class="profile-container">
+        <% if (!editMode) { %>
+<div class="user_profile_display">
+  <div class="profile_grid">
+    <div class="profile_item">
+      <label>Full Name:</label>
+      <div><%= user.full_name %></div>
+    </div>
+
+    <div class="profile_item">
+      <label>Username:</label>
+      <div><%= user.username %></div>
+    </div>
+
+    <div class="profile_item">
+      <label>Email:</label>
+      <div><%= user.email %></div>
+    </div>
+
+    <div class="profile_item">
+      <label>Mobile:</label>
+      <div><%= user.mobile %></div>
+    </div>
+
+    <div class="profile_item full_width">
+      <label>Bio:</label>
+      <div><%= user.bio %></div>
+    </div>
+
+    <div class="profile_item">
+      <label>Instagram:</label>
+      <div><a href="<%= user.instagram %>" target="_blank"><%= user.instagram %></a></div>
+    </div>
+
+    <div class="profile_item">
+      <label>LinkedIn:</label>
+      <div><a href="<%= user.linkedin %>" target="_blank"><%= user.linkedin %></a></div>
+    </div>
+
+    <div class="profile_item">
+      <label>LeetCode:</label>
+      <div><a href="<%= user.leetcode %>" target="_blank"><%= user.leetcode %></a></div>
+    </div>
+
+    <div class="profile_item">
+      <label>GFG:</label>
+      <div><a href="<%= user.gfg %>" target="_blank"><%= user.gfg %></a></div>
+    </div>
+
+    <div class="profile_item">
+      <label>CodeChef:</label>
+      <div><a href="<%= user.codechef %>" target="_blank"><%= user.codechef %></a></div>
+    </div>
+
+    <div class="profile_item">
+      <label>Gender:</label>
+      <div><%= user.gender %></div>
+    </div>
+  </div>
+</div>
+
+
+<% } else { %>
+
+           <form action="/user_profile/edit" method="POST" class="profile-form">
+    <div class="form-grid">
+        <div class="form-group">
+            <label>Full Name:</label>
+            <input type="text" name="full_name" value="<%= user.full_name || '' %>" required>
+        </div>
+
+        <div class="form-group">
+            <label>Username:</label>
+            <input type="text" name="username" value="<%= user.username || '' %>" required>
+        </div>
+
+        <div class="form-group">
+            <label>Email:</label>
+            <input type="email" value="<%= user.email %>" readonly>
+        </div>
+
+        <div class="form-group">
+            <label>Mobile:</label>
+            <input type="text" name="mobile" value="<%= user.mobile || '' %>">
+        </div>
+
+        <div class="form-group full-width">
+            <label>Bio:</label>
+            <textarea name="bio"><%= user.bio || '' %></textarea>
+        </div>
+
+        <div class="form-group">
+            <label>Instagram:</label>
+            <input type="url" name="instagram" value="<%= user.instagram || '' %>">
+        </div>
+
+        <div class="form-group">
+            <label>LinkedIn:</label>
+            <input type="url" name="linkedin" value="<%= user.linkedin || '' %>">
+        </div>
+
+        <div class="form-group">
+            <label>LeetCode:</label>
+            <input type="url" name="leetcode" value="<%= user.leetcode || '' %>">
+        </div>
+
+        <div class="form-group">
+            <label>GFG:</label>
+            <input type="url" name="gfg" value="<%= user.gfg || '' %>">
+        </div>
+
+        <div class="form-group">
+            <label>CodeChef:</label>
+            <input type="url" name="codechef" value="<%= user.codechef || '' %>">
+        </div>
+
+        <div class="form-group">
+            <label>Gender:</label>
+            <select name="gender">
+                <option value="">--Select--</option>
+                <option value="Male" <%= user.gender === 'Male' ? 'selected' : '' %>>Male</option>
+                <option value="Female" <%= user.gender === 'Female' ? 'selected' : '' %>>Female</option>
+                <option value="Other" <%= user.gender === 'Other' ? 'selected' : '' %>>Other</option>
+            </select>
+        </div>
+    </div>
+
+    <button type="submit">Save</button>
+</form>
+
+        <% } %>
+    </div>
+    </div>
+   
+
+    <%- include('partials/footer') %>
+</body>
+</html>

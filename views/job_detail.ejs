@@ -1,0 +1,296 @@
+<%- include('partials/header') %>
+
+<div class="job_detail_section">
+    <div class="job_detail_container">
+        <div class="job_header">
+            <h1><%= job.title %></h1>
+            <div class="job_location">
+                <i class="bi bi-geo-alt"></i>
+                <span><%= job.location %></span>
+            </div>
+        </div>
+
+        <div class="job_tags">
+            <% job.tags.forEach(tag => { %>
+                <button class="tag"><%= tag %></button>
+            <% }); %>
+        </div>
+
+        <div class="job_info_grid">
+            <div class="info_item">
+                <i class="bi bi-envelope-paper"></i>
+                <div>
+                    <p class="label">Job Offer</p>
+                    <p class="value"><%= job.salary %></p>
+                </div>
+            </div>
+
+            <div class="info_item">
+                <i class="bi bi-calendar"></i>
+                <div>
+                    <p class="label">Start Date</p>
+                    <p class="value">Immediate</p>
+                </div>
+            </div>
+
+            <div class="info_item">
+                <i class="bi bi-hash"></i>
+                <div>
+                    <p class="label">Openings</p>
+                    <p class="value"><%= job.openings %></p>
+                </div>
+            </div>
+
+            <div class="info_item">
+                <i class="bi bi-briefcase"></i>
+                <div>
+                    <p class="label">Experience</p>
+                    <p class="value"><%= job.experience %></p>
+                </div>
+            </div>
+
+            <div class="info_item">
+                <i class="bi bi-clipboard-check"></i>
+                <div>
+                    <p class="label">Probation Duration</p>
+                    <p class="value"><%= job.probation %></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="job_description">
+            <h2>About the Company</h2>
+            <p><%= job.company_description %></p>
+
+            <h2>Role Overview</h2>
+            <p><%= job.role_description %></p>
+
+            <h2>Responsibilities</h2>
+            <p><%= job.responsibilities %></p>
+
+            <h2>Required Skills</h2>
+            <p><%= job.skills_required %></p>
+        </div>
+
+        <div class="application_form">
+            <h2>Apply for this Position</h2>
+            <form action="/apply/<%= job.id %>" method="post" enctype="multipart/form-data">
+                <div class="form_group">
+                    <label for="resume">Upload Resume (PDF only)</label>
+                    <input type="file" id="resume" name="resume"  accept=".pdf" required />
+                </div>
+                <button type="submit" class="apply_button">Submit Application</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<style>
+
+
+    body{
+        font-family:  'Quicksand', sans-serif;
+    }
+.job_detail_section {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.job_detail_container {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.job_header {
+    margin-bottom: 1.5rem;
+}
+
+.job_header h1 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.job_location {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #666;
+}
+
+.job_tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+}
+
+.tag {
+    background: #f0f0f0;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    color: #333;
+}
+
+.job_info_grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+}
+
+.info_item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.info_item i {
+    font-size: 1.5rem;
+    
+}
+
+.info_item .label {
+    font-size: 0.9rem;
+    color: #666;
+    margin: 0;
+}
+
+.info_item .value {
+    font-size: 1rem;
+    color: #333;
+    margin: 0;
+    font-weight: 500;
+}
+
+.job_description {
+    margin-bottom: 2rem;
+}
+
+.job_description h2 {
+    font-size: 1.5rem;
+    color: #333;
+    margin: 1.5rem 0 1rem;
+}
+
+.job_description p {
+    color: #666;
+    line-height: 1.6;
+}
+
+.application_form {
+    background: #f8f9fa;
+    padding: 2rem;
+    border-radius: 8px;
+}
+
+.application_form h2 {
+    margin-bottom: 1.5rem;
+}
+
+.form_group {
+    margin-bottom: 1.5rem;
+}
+
+.form_group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.form_group input[type="file"] {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.apply_button {
+    background: #007bff;
+    color: white;
+    border: none;
+    margin-left: 0;
+    padding: 1rem 2rem;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.apply_button:hover {
+    background: #0056b3;
+}
+
+
+
+form {
+  width: 100%; /* Full width */
+  padding: 30px;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  color: #030303;
+  font-family: 'Segoe UI', sans-serif;
+  box-sizing: border-box;
+}
+
+.form_group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.form_group label {
+  margin-bottom: 8px;
+  font-weight: 600;
+  font-size: 16px;
+  color:rgb(16, 16, 16);
+}
+
+.form_group input[type="file"] {
+  padding: 10px;
+  background-color:#222831;
+  border: 1px solid #0b0b0b;
+  border-radius: 30px;
+  color: rgb(231, 227, 227);
+  cursor: pointer;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.form_group input[type="file"]::-webkit-file-upload-button {
+  background: white;
+  color: black;
+  padding: 6px 14px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+.apply_button {
+  width: 30%;
+  
+  padding: 12px;
+  background-color: #0a66c2;
+  color: rgb(234, 230, 230);
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 40px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  
+}
+
+.apply_button:hover {
+ transform: scale(1.0);
+}

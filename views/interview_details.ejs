@@ -1,0 +1,132 @@
+<%- include('partials/header') %>
+
+<div class="interview_detail_container">
+
+  <div class="interview_card">
+    <h1><%= interview.company %></h1>
+    <p class="position"><strong>Position:</strong> <%= interview.position %></p>
+
+    <!-- Tags -->
+    <div class="tags">
+      <% tags.forEach(tag => { %>
+        <span class="tag"><%= tag %></span>
+      <% }); %>
+    </div>
+
+    <!-- Key Focus & Strategy -->
+    <div class="section">
+      <h3> <i class="bi bi-lightning-charge" style="color:red"></i>Key Focus Areas</h3>
+      <p><%= interview.key_focus %>...</p>
+    </div>
+
+    <div class="section">
+      <h3><i class="bi bi-hammer"style="color:red"></i> Interview Strategy</h3>
+      <p><%= interview.strategy %></p>
+    </div>
+
+    <!-- Interview Rounds -->
+    <div class="section">
+      <h3> <i class="bi bi-hash"></i>Interview Rounds</h3>
+      <% rounds.forEach(round => { %>
+        <div class="round">
+          <h4>Round <%= round.round_number %>: <%= round.title %></h4>
+          <p><strong>Difficulty:</strong> <%= round.difficulty %></p>
+          <p><strong>Duration:</strong> <%= round.duration %> minutes</p>
+          <p><strong>Mode:</strong> <%= round.mode %></p>
+          <% if (round.coding_problems !== null) { %>
+            <p><strong>Coding Problems:</strong> <%= round.coding_problems %></p>
+          <% } %>
+        </div>
+      <% }); %>
+    </div>
+
+    <!-- Extra Info -->
+    <div class="section">
+      <h3> <i class="bi bi-wrench-adjustable"></i>Additional Info</h3>
+      <p><strong>Difficulty Level:</strong> <%= interview.difficulty_level %></p>
+      <p><strong>Timeline:</strong> <%= interview.timeline %></p>
+      <p><strong>Application Mode:</strong> <%= interview.application_mode %></p>
+      <p><strong>Salary Range:</strong> <%= interview.salary_range %></p>
+    </div>
+
+    <!-- Tips -->
+    <div class="section">
+      <h3><i class="bi bi-pin-angle"></i> Preparation Tips</h3>
+      <p><%= interview.preparation_tips %></p>
+    </div>
+
+    <div class="section">
+      <h3><i class="bi bi-person-plus-fill"></i> General Advice</h3>
+      <p><%= interview.general_advice %></p>
+    </div>
+
+    <!-- Footer -->
+    
+  </div>
+
+</div>
+
+<style>
+  .interview_detail_container {
+  max-width: 1300px;
+  margin: 40px auto;
+  font-family: 'Quicksand', sans-serif;
+  padding: 20px;
+  background: #222831;
+  color: #f4f4f4;
+  border-radius: 16px;
+  
+}
+
+.interview_card h1 {
+  font-size: 32px;
+  color: #0c0c0c;
+  margin-bottom: 10px;
+}
+
+.position {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.tags {
+  margin: 10px 0 20px;
+}
+
+.tag {
+  background: #113d80;
+  padding: 6px 12px;
+  color:white;
+  border-radius: 20px;
+  margin-right: 8px;
+  display: inline-block;
+  font-size: 14px;
+}
+
+.section {
+  margin-top: 30px;
+}
+
+.section h3 {
+  font-size: 20px;
+  color: #090909;
+  margin-bottom: 10px;
+}
+
+.round {
+  background: rgb(215, 210, 210);
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.footer {
+  margin-top: 40px;
+  font-style: italic;
+  font-size: 14px;
+  color: #a0a0a0;
+}
+
+</style>
+
+<%- include('partials/footer') %>

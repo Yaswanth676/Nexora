@@ -1,0 +1,154 @@
+*{
+    margin:0;
+
+}
+ h1{
+    font-size: 40px;
+    padding-top:20px;
+    padding-left:2px;
+    color:#0a66c2;
+    padding-bottom: 10px;
+        
+    }
+p{
+    font-size: medium;
+    padding-top: 5px;
+    color:#222831;
+    padding-top: 10px;
+    font-size:large;
+    font-family: 'Quicksand', sans-serif;
+           
+
+}
+.login-page{
+    height:100vh;
+    background-color:  #222831;  
+   display:flex;
+   justify-content: center;
+   align-items: center;
+}
+.login-box{
+    height:650px;
+    width:390px;
+    background-color: white;
+    border-radius: 15px; 
+}
+.header{
+    justify-content: center;
+    text-align: center;
+    padding-bottom: 40px;
+      
+}
+
+
+.form-group {
+    margin-bottom: 22px;
+    width:300px;
+    padding-left: 25px;
+}
+
+.form-group label {
+    display:block;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #333;
+    letter-spacing: -0.2px;
+    font-family: 'Quicksand', sans-serif;
+
+
+}
+
+.form-control {
+    width: 100%;
+    padding: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    transition: all 0.2s ease;
+    background-color: #fff;
+    color: #333;
+}
+
+.form-control::placeholder {
+    color: #999;
+    font-weight: 400;
+}
+
+.form-control:focus {
+    border-color: #0a66c2;
+    outline: none;
+    box-shadow: 0 0 0 1px #0a66c2;
+}
+.forgot-password {
+    text-align: right;
+    margin-bottom: 20px;
+    padding-right: 30px;
+    font-family: 'Quicksand', sans-serif;
+
+}
+
+.forgot-password a {
+    color: #0a66c2;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 600;
+    transition: color 0.2s ease;
+}
+
+.forgot-password a:hover {
+    text-decoration: underline;
+    color: #004182;
+}
+
+.sign-btn{
+    padding: 15px;
+    width:350px;
+    font-size:medium;
+    font-weight: bold;
+    border-radius: 20px;
+    background-color:  #0a66c2;
+    color:white;
+    border:none;
+    cursor: pointer;
+    padding-left: 20px;
+    margin-left: 20px;
+    
+
+}
+.sign-btn:hover{
+    background-color: #0b3b6b;
+    color: white;
+
+}
+.divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 24px 0;
+    color: #666;
+}
+
+.divider::before,
+.divider::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid #ccc;
+}
+
+.divider span {
+    padding: 0 16px;
+    font-size: 15px;
+    font-weight: 500;
+}
+.auth-footer{
+    padding-left: 25px;
+    
+}
+
+.auth-footer a{
+    text-decoration: none;
+    color: #0a66c2;
+     
+}
+
